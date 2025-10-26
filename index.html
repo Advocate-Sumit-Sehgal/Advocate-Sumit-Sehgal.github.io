@@ -13,7 +13,7 @@
       --text-mid: #bbbbbb;
       --accent: #c9a552; /* muted gold */
       --border-light: rgba(255,255,255,0.12);
-      --border-dark: #dddddd;
+      --border-dark: #e2e2e2;
       --body-max: 1100px;
       --body-font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     }
@@ -59,6 +59,7 @@
     .top-item {
       color: var(--text-light);
     }
+
     .top-item span.label {
       color: var(--text-mid);
       font-weight: 500;
@@ -66,73 +67,104 @@
     }
 
     /* ===== NAV BAR ===== */
-  <div class="nav-bar">
-    <div class="nav-inner">
-      <div class="brand-block">
-        <div class="brand-name">Sumit Sehgal</div>
-        <div class="brand-tag">Advocate | Practical Legal Counsel</div>
-      </div>
+    .nav-bar {
+      background-color: #fff;
+      border-bottom: 1px solid var(--border-dark);
+      padding: 16px;
+    }
 
-      <nav class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
+    .nav-inner {
+      max-width: var(--body-max);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
 
-        <!-- Practice Areas menu container -->
-        <div style="display:flex; flex-direction:column; position:relative;">
-          <a href="#practice" style="text-decoration:none; color:#111; font-weight:500;">Practice Areas ▾</a>
-          <div style="
-            position:absolute;
-            top:20px;
-            left:0;
-            background:#fff;
-            border:1px solid #e2e2e2;
-            border-radius:8px;
-            padding:12px 16px;
-            min-width:220px;
-            box-shadow:0 12px 24px rgba(0,0,0,0.08);
-            display:none;
-            z-index:999;
-            font-size:14px;
-            line-height:1.4;
-          "
-          class="practice-dropdown">
-            <div style="margin-bottom:10px;">
-              <a href="#contracts" style="color:#111; text-decoration:none; font-weight:500;">Contracts &amp; Compliance</a>
-            </div>
-            <div style="margin-bottom:10px;">
-              <a href="#employment" style="color:#111; text-decoration:none; font-weight:500;">Employment &amp; HR Advisory</a>
-            </div>
-            <div style="margin-bottom:10px;">
-              <a href="#disputes" style="color:#111; text-decoration:none; font-weight:500;">Business Disputes</a>
-            </div>
-            <div>
-              <a href="#regulatory" style="color:#111; text-decoration:none; font-weight:500;">Regulatory Guidance</a>
-            </div>
-          </div>
-        </div>
+    .brand-block {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
 
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </div>
+    .brand-name {
+      font-size: 20px;
+      font-weight: 600;
+      color: #111;
+    }
 
-  <script>
-    // Simple hover to show dropdown on desktop
-    (function () {
-      const container = document.querySelector('.nav-links > div');
-      const dropdown = document.querySelector('.practice-dropdown');
+    .brand-tag {
+      font-size: 13px;
+      color: #555;
+    }
 
-      if (container && dropdown) {
-        container.addEventListener('mouseenter', () => {
-          dropdown.style.display = 'block';
-        });
-        container.addEventListener('mouseleave', () => {
-          dropdown.style.display = 'none';
-        });
-      }
-    })();
-  </script>
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 24px;
+      font-size: 14px;
+      font-weight: 500;
+      position: relative;
+    }
 
+    .nav-links > a {
+      color: #111;
+      text-decoration: none;
+    }
+
+    .nav-links > a:hover {
+      color: var(--accent);
+    }
+
+    /* Dropdown container in nav */
+    .practice-container {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .practice-trigger {
+      text-decoration: none;
+      color: #111;
+      cursor: pointer;
+    }
+
+    .practice-trigger:hover {
+      color: var(--accent);
+    }
+
+    .practice-dropdown {
+      position: absolute;
+      top: 22px;
+      left: 0;
+      background:#fff;
+      border:1px solid var(--border-dark);
+      border-radius:8px;
+      padding:12px 16px;
+      min-width:220px;
+      box-shadow:0 12px 24px rgba(0,0,0,0.08);
+      display:none;
+      z-index:999;
+      font-size:14px;
+      line-height:1.4;
+    }
+
+    .practice-dropdown a {
+      display:block;
+      color:#111;
+      text-decoration:none;
+      font-weight:500;
+      padding:4px 0;
+    }
+
+    .practice-dropdown a:hover {
+      color:var(--accent);
+    }
 
     /* ===== HERO SECTION ===== */
     .hero {
@@ -254,46 +286,43 @@
     }
 
     /* Practice areas grid */
-          <div class="areas-grid">
+    .areas-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
 
-        <div class="area-card" id="contracts">
-          <div class="area-title">Contracts &amp; Compliance</div>
-          <div class="area-text">
-            Drafting, reviewing, and negotiating commercial agreements so obligations are
-            clear and enforceable.
-          </div>
-        </div>
+    @media(min-width:600px){
+      .areas-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
 
-        <div class="area-card" id="employment">
-          <div class="area-title">Employment &amp; HR Advisory</div>
-          <div class="area-text">
-            Offer letters, separations, internal policy language, confidentiality clauses,
-            non-compete and non-solicit language.
-          </div>
-        </div>
+    .area-card {
+      border: 1px solid var(--border-dark);
+      border-radius: 10px;
+      padding: 16px 20px;
+      background-color: #fff;
+      line-height: 1.4;
+    }
 
-        <div class="area-card" id="disputes">
-          <div class="area-title">Business Disputes</div>
-          <div class="area-text">
-            Legal notices, settlement strategy, representation in commercial and civil matters.
-            If someone stops respecting terms, we make sure they start respecting them.
-          </div>
-        </div>
+    .area-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #111;
+    }
 
-        <div class="area-card" id="regulatory">
-          <div class="area-title">Regulatory Guidance</div>
-          <div class="area-text">
-            Confidentiality, data handling, and risk posture for growing teams and early-stage
-            companies.
-          </div>
-        </div>
-
-      </div>
-
+    .area-text {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.5;
+    }
 
     /* Contact block in main */
     .contact-card {
-      border: 1px solid #e2e2e2;
+      border: 1px solid var(--border-dark);
       border-radius: 10px;
       padding: 20px 24px;
       background-color: #fafafa;
@@ -386,7 +415,6 @@
       padding-top: 16px;
       text-align: center;
     }
-
   </style>
 </head>
 <body>
@@ -418,11 +446,24 @@
         <div class="brand-name">Sumit Sehgal</div>
         <div class="brand-tag">Advocate | Practical Legal Counsel</div>
       </div>
+
       <nav class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#practice">Practice Areas</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">About</a>
+
+        <div class="practice-container">
+          <a class="practice-trigger">Practice Areas ▾</a>
+          <div class="practice-dropdown">
+            <a href="index.html#contracts">Contracts &amp; Compliance</a>
+            <a href="index.html#employment">Employment &amp; HR Advisory</a>
+            <a href="index.html#disputes">Business Disputes</a>
+            <a href="index.html#regulatory">Regulatory Guidance</a>
+          </div>
+        </div>
+
+        <a href="index.html#contact">Contact</a>
+        <a href="contact-us.html">Contact Us</a>
+        <a href="make-payments.html">Make Payment</a>
       </nav>
     </div>
   </div>
@@ -470,25 +511,25 @@
     <section class="section-block" id="practice">
       <div class="section-head">Practice Areas</div>
       <h2 class="section-title">Where I can help you immediately</h2>
-      <div class="areas-grid">
 
-        <div class="area-card">
-          <div class="area-title">Contracts & Compliance</div>
+      <div class="areas-grid">
+        <div class="area-card" id="contracts">
+          <div class="area-title">Contracts &amp; Compliance</div>
           <div class="area-text">
             Drafting, reviewing, and negotiating commercial agreements so obligations are
             clear and enforceable.
           </div>
         </div>
 
-        <div class="area-card">
-          <div class="area-title">Employment & HR Advisory</div>
+        <div class="area-card" id="employment">
+          <div class="area-title">Employment &amp; HR Advisory</div>
           <div class="area-text">
             Offer letters, separations, internal policy language, confidentiality clauses,
             non-compete and non-solicit language.
           </div>
         </div>
 
-        <div class="area-card">
+        <div class="area-card" id="disputes">
           <div class="area-title">Business Disputes</div>
           <div class="area-text">
             Legal notices, settlement strategy, representation in commercial and civil matters.
@@ -496,14 +537,13 @@
           </div>
         </div>
 
-        <div class="area-card">
+        <div class="area-card" id="regulatory">
           <div class="area-title">Regulatory Guidance</div>
           <div class="area-text">
             Confidentiality, data handling, and risk posture for growing teams and early-stage
             companies.
           </div>
         </div>
-
       </div>
     </section>
 
@@ -556,10 +596,12 @@
       </div>
 
       <div class="footer-nav">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#practice">Practice Areas</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#practice">Practice Areas</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="contact-us.html">Contact Us</a>
+        <a href="make-payments.html">Make Payment</a>
       </div>
     </div>
 
@@ -567,6 +609,23 @@
       © 2025 Sumit Sehgal. All Rights Reserved.
     </div>
   </footer>
+
+  <!-- Dropdown hover script -->
+  <script>
+    (function () {
+      const container = document.querySelector('.practice-container');
+      const dropdown = document.querySelector('.practice-dropdown');
+
+      if (container && dropdown) {
+        container.addEventListener('mouseenter', () => {
+          dropdown.style.display = 'block';
+        });
+        container.addEventListener('mouseleave', () => {
+          dropdown.style.display = 'none';
+        });
+      }
+    })();
+  </script>
 
 </body>
 </html>
