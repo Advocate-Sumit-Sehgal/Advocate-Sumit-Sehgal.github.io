@@ -509,43 +509,135 @@
 
     <!-- PRACTICE AREAS -->
     <section class="section-block" id="practice">
-      <div class="section-head">Practice Areas</div>
-      <h2 class="section-title">Where I can help you immediately</h2>
+  <style>
+    .areas-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    @media(min-width:768px){
+      .areas-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
 
-      <div class="areas-grid">
-        <div class="area-card" id="contracts">
-          <div class="area-title">Contracts &amp; Compliance</div>
-          <div class="area-text">
-            Drafting, reviewing, and negotiating commercial agreements so obligations are
-            clear and enforceable.
-          </div>
-        </div>
+    .area-card {
+      border: 1px solid #e2e2e2;
+      border-radius: 10px;
+      padding: 16px 20px;
+      background-color: #fff;
+      line-height: 1.5;
+    }
 
-        <div class="area-card" id="employment">
-          <div class="area-title">Employment &amp; HR Advisory</div>
-          <div class="area-text">
-            Offer letters, separations, internal policy language, confidentiality clauses,
-            non-compete and non-solicit language.
-          </div>
-        </div>
+    .area-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #111;
+    }
 
-        <div class="area-card" id="disputes">
-          <div class="area-title">Business Disputes</div>
-          <div class="area-text">
-            Legal notices, settlement strategy, representation in commercial and civil matters.
-            If someone stops respecting terms, we make sure they start respecting them.
-          </div>
-        </div>
+    .area-list {
+      font-size: 14px;
+      color: #555;
+      padding-left: 1.1rem;
+      margin: 0;
+    }
 
-        <div class="area-card" id="regulatory">
-          <div class="area-title">Regulatory Guidance</div>
-          <div class="area-text">
-            Confidentiality, data handling, and risk posture for growing teams and early-stage
-            companies.
-          </div>
-        </div>
-      </div>
-    </section>
+    .area-list li {
+      margin-bottom: .5rem;
+    }
+  </style>
+
+  <div class="section-head">Practice Areas</div>
+  <h2 class="section-title">Matters handled</h2>
+  <div class="section-desc">
+    Full-time litigation & corporate practice. Civil, criminal, commercial, employment,
+    arbitration, family, technology and NRI matters.
+  </div>
+
+  <div class="areas-grid">
+
+    <div class="area-card" id="civil-commercial">
+      <div class="area-title">Civil & Commercial Litigation</div>
+      <ul class="area-list">
+        <li>Injunctions, recovery, summary suits, declarations</li>
+        <li>Real Estate &amp; Construction disputes</li>
+        <li>Consumer matters</li>
+        <li>Debt recovery (DRT &amp; DRAT)</li>
+        <li>Cheque bounce / Negotiable Instruments Act (138)</li>
+      </ul>
+    </div>
+
+    <div class="area-card" id="criminal-whitecollar">
+      <div class="area-title">Criminal &amp; White Collar Defence</div>
+      <ul class="area-list">
+        <li>FIR handling, defence strategy, arguments in court</li>
+        <li>White collar / economic offences</li>
+        <li>Compliance breaches, fraud allegations</li>
+      </ul>
+    </div>
+
+    <div class="area-card" id="arbitration">
+      <div class="area-title">Arbitration &amp; Dispute Resolution</div>
+      <ul class="area-list">
+        <li>Domestic &amp; international arbitration</li>
+        <li>Commercial contract disputes</li>
+        <li>Settlement strategy and enforcement</li>
+      </ul>
+    </div>
+
+    <div class="area-card" id="employment">
+      <div class="area-title">Employment &amp; Labour Law</div>
+      <ul class="area-list">
+        <li>Employer–employee disputes</li>
+        <li>Termination, notice, severance terms</li>
+        <li>HR / internal policy and compliance</li>
+      </ul>
+    </div>
+
+    <div class="area-card" id="corporate">
+      <div class="area-title">Corporate, Insolvency &amp; M&amp;A</div>
+      <ul class="area-list">
+        <li>Corporate / Company Law advisory</li>
+        <li>Mergers &amp; Acquisitions</li>
+        <li>Insolvency &amp; Bankruptcy</li>
+      </ul>
+    </div>
+
+    <div class="area-card" id="tech">
+      <div class="area-title">Technology, Cyber &amp; Compliance</div>
+      <ul class="area-list">
+        <li>Data privacy &amp; protection</li>
+        <li>Information Technology Act matters</li>
+        <li>Cyber law disputes</li>
+        <li>E-commerce compliance, website policies, T&amp;C</li>
+        <li>Start-up advisory / outsourcing</li>
+      </ul>
+    </div>
+
+    <div class="area-card" id="family">
+      <div class="area-title">Family &amp; Matrimonial Law</div>
+      <ul class="area-list">
+        <li>Divorce, Domestic Violence, 498A</li>
+        <li>Section 125 CRPC, Section 9 HMA</li>
+        <li>Custody, property rights, annulment of marriage</li>
+      </ul>
+    </div>
+
+    <div class="area-card" id="nri-drafting">
+      <div class="area-title">NRI Matters &amp; Strategic Advisory</div>
+      <ul class="area-list">
+        <li>NRI legal services</li>
+        <li>Legal drafting (agreements, notices, replies)</li>
+        <li>Vetting &amp; review of contracts (domestic &amp; international)</li>
+        <li>Written opinions, legal strategy, guidance before escalation</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
 
     <!-- CONTACT / APPOINTMENT -->
     <section class="section-block" id="contact">
