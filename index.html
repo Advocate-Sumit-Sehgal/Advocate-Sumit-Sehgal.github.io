@@ -719,12 +719,13 @@
   }
 
   /* object-fit: cover keeps subject centered and crops cleanly */
-  .gallery-img-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-  }
+ .gallery-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center; /* keep head visible, crop bottom */
+  display: block;
+}
 
   /* caption takes remaining vertical space so cards end same height */
   .gallery-caption {
