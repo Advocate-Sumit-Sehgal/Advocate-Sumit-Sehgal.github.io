@@ -711,7 +711,7 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: .05em;
-    color: var(--accent);
+    color: var(--accent); /* gold */
     margin-bottom: 8px;
   }
 
@@ -731,70 +731,64 @@
     margin-bottom: 24px;
   }
 
-  /* grid layout for the 4 cards */
   .gallery-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
   }
-
-  @media (min-width: 900px) {
+  @media(min-width:900px){
     .gallery-grid {
       grid-template-columns: repeat(4, 1fr);
     }
   }
 
-  /* each card is now a flex column so heights line up */
   .gallery-card {
     border: 1px solid #e2e2e2;
     border-radius: 10px;
     background-color: #fff;
-    overflow: hidden;
     display: flex;
     flex-direction: column;
-    /* force all cards to stretch to the same height in the grid */
     height: 100%;
+    overflow: hidden;
   }
 
-  /* fixed height image wrapper so all photos show same height */
-  .gallery-img-wrapper {
-    background-color: #000;
-    border-bottom: 1px solid #e2e2e2;
-    width: 100%;
-    height: 320px;            /* <-- control the uniform photo height */
-    overflow: hidden;
+  .icon-wrap {
+    background-color: #111;          /* black card header */
+    color: var(--accent);            /* gold accents */
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 24px;
+    height: 160px;
   }
 
-  /* object-fit: cover keeps subject centered and crops cleanly */
- .gallery-img-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: top center; /* keep head visible, crop bottom */
-  display: block;
-}
+  .icon-wrap svg {
+    width: 64px;
+    height: 64px;
+    stroke: var(--accent);
+    fill: none;
+    stroke-width: 1.5;
+  }
 
-  /* caption takes remaining vertical space so cards end same height */
   .gallery-caption {
     flex: 1 1 auto;
-    padding: 12px 14px;
-    font-size: 13px;
-    line-height: 1.4;
+    padding: 16px 16px 20px;
+    font-size: 14px;
+    line-height: 1.5;
     color: #444;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
   }
 
-  .gallery-caption .cap-strong {
+  .cap-strong {
     font-weight: 600;
     color: #111;
-    margin-bottom: 6px;
+    font-size: 16px;
+    line-height: 1.4;
+    margin-bottom: 8px;
   }
 </style>
+
 
 
   <div class="gallery-headline">Counsel in Practice</div>
@@ -804,17 +798,71 @@
     and technology matters. In court, in conference, and in advisory mode.
   </div>
 
-  <div class="gallery-grid">
-    <!-- 1 -->
-    <div class="gallery-card">
-      <div class="gallery-img-wrapper">
-        <img src="img/portrait-main.jpg" alt="Court appearance" />
-      </div>
-      <div class="gallery-caption">
-        <div class="cap-strong">Courtroom Representation</div>
-        Formal appearance and argument in complex matters.
-      </div>
+ <div class="gallery-grid">
+
+  <!-- Card 1 -->
+  <div class="gallery-card">
+    <div class="icon-wrap">
+      <!-- Scales of Justice icon -->
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 3v3m0 0c2 0 3 .5 3 .5l4 7.5a3 3 0 1 1-6 0l3.5-6.5M12 6s-1 .5-3 .5L5 14a3 3 0 1 0 6 0L7.5 7.5M12 6v13m-5 2h10" />
+      </svg>
     </div>
+    <div class="gallery-caption">
+      <div class="cap-strong">Courtroom Representation</div>
+      Formal appearance and argument in complex matters. Cross-examination, recovery, injunctions.
+    </div>
+  </div>
+
+  <!-- Card 2 -->
+  <div class="gallery-card">
+    <div class="icon-wrap">
+      <!-- Courthouse / Pillars icon -->
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M3 10h18M5 10v7M9 10v7M15 10v7M19 10v7M2 21h20M12 3 3 8h18l-9-5Z" />
+      </svg>
+    </div>
+    <div class="gallery-caption">
+      <div class="cap-strong">Trial and Appellate Lawyer</div>
+      Prepared, documented, and on record — filings, appeals, written submissions. Not just advisory.
+    </div>
+  </div>
+
+  <!-- Card 3 -->
+  <div class="gallery-card">
+    <div class="icon-wrap">
+      <!-- Strategy / Chess Knight icon -->
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 22h6m-6 0v-2a3 3 0 0 1 .4-1.5L11 16l-1-4 2-2 3 2 .5 3.5a2 2 0 0 0 2 1.5H19" />
+        <path d="M13 10V7.5c0-.5-.2-1-.6-1.4L11 4" />
+        <path d="M11 4 7 5v3l2 2" />
+      </svg>
+    </div>
+    <div class="gallery-caption">
+      <div class="cap-strong">Strategy &amp; Advisory</div>
+      High-stakes disputes are won in preparation, negotiation leverage, and risk control — not improvisation.
+    </div>
+  </div>
+
+  <!-- Card 4 -->
+  <div class="gallery-card">
+    <div class="icon-wrap">
+      <!-- Document / Stamp / Briefcase hybrid vibe -->
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 3h6l4 4v4.5M9 3v18H5a2 2 0 0 1-2-2V7l4-4h2Z" />
+        <path d="M15 3v4h4" />
+        <rect x="12" y="14" width="10" height="7" rx="2" ry="2" />
+        <path d="M16 14v-1a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v1" />
+      </svg>
+    </div>
+    <div class="gallery-caption">
+      <div class="cap-strong">On-Ground Litigation</div>
+      Real clients, real cases, real consequences. FIR defence, cheque bounce, labour disputes, enforcement.
+    </div>
+  </div>
+
+</div>
+
 
     <!-- 2 -->
     <div class="gallery-card">
