@@ -656,76 +656,95 @@
  <!-- COUNSEL IN PRACTICE -->
     <section class="section-block" id="counsel">
   <style>
-    .gallery-headline {
-      font-size: 14px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: .05em;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
+  .gallery-headline {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    color: var(--accent);
+    margin-bottom: 8px;
+  }
 
-    .gallery-title {
-      font-size: 20px;
-      font-weight: 600;
-      color: #111;
-      margin: 0 0 12px 0;
-      line-height: 1.3;
-    }
+  .gallery-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #111;
+    margin: 0 0 12px 0;
+    line-height: 1.3;
+  }
 
-    .gallery-desc {
-      font-size: 14px;
-      color: #444;
-      max-width: 760px;
-      line-height: 1.5;
-      margin-bottom: 24px;
-    }
+  .gallery-desc {
+    font-size: 14px;
+    color: #444;
+    max-width: 760px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
 
+  /* grid layout for the 4 cards */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (min-width: 900px) {
     .gallery-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      grid-template-columns: repeat(4, 1fr);
     }
+  }
 
-    @media(min-width:900px){
-      .gallery-grid {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
+  /* each card is now a flex column so heights line up */
+  .gallery-card {
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    /* force all cards to stretch to the same height in the grid */
+    height: 100%;
+  }
 
-    .gallery-card {
-      border: 1px solid #e2e2e2;
-      border-radius: 10px;
-      background-color: #fff;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
+  /* fixed height image wrapper so all photos show same height */
+  .gallery-img-wrapper {
+    background-color: #000;
+    border-bottom: 1px solid #e2e2e2;
+    width: 100%;
+    height: 320px;            /* <-- control the uniform photo height */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .gallery-img-wrapper {
-      background-color: #000;
-      border-bottom: 1px solid #e2e2e2;
-    }
+  /* object-fit: cover keeps subject centered and crops cleanly */
+  .gallery-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
 
-    .gallery-img-wrapper img {
-      display: block;
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
+  /* caption takes remaining vertical space so cards end same height */
+  .gallery-caption {
+    flex: 1 1 auto;
+    padding: 12px 14px;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #444;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 
-    .gallery-caption {
-      padding: 12px 14px;
-      font-size: 13px;
-      line-height: 1.4;
-      color: #444;
-    }
+  .gallery-caption .cap-strong {
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 6px;
+  }
+</style>
 
-    .gallery-caption .cap-strong {
-      font-weight: 600;
-      color: #111;
-    }
-  </style>
 
   <div class="gallery-headline">Counsel in Practice</div>
   <div class="gallery-title">Representation. Strategy. Courtroom Work.</div>
