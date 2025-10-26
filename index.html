@@ -167,23 +167,15 @@
     }
 
     /* ===== HERO SECTION ===== */
-    .hero {
-      position: relative;
-      background-color: var(--bg-darker);
-      color: var(--text-light);
-      padding: 60px 16px 80px;
-    }
-
-    .hero-inner {
-      max-width: var(--body-max);
-      margin: 0 auto;
+  <section class="hero" id="home">
+  <style>
+    .hero-layout {
       display: grid;
       grid-template-columns: 1fr;
       row-gap: 24px;
     }
-
     @media(min-width:768px){
-      .hero-inner {
+      .hero-layout {
         grid-template-columns: 1fr 1fr;
         column-gap: 40px;
         align-items: center;
@@ -195,13 +187,6 @@
       font-weight: 600;
       color: var(--text-light);
       margin: 0 0 12px 0;
-    }
-
-    .hero-copy .subline {
-      font-size: 15px;
-      color: var(--text-mid);
-      line-height: 1.5;
-      max-width: 500px;
     }
 
     .hero-badge {
@@ -218,6 +203,83 @@
       text-transform: uppercase;
     }
 
+    .hero-copy .subline {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.5;
+      max-width: 500px;
+    }
+
+    .hero-photo-card {
+      max-width: 360px;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      background-color: rgba(255,255,255,0.03);
+      padding: 16px;
+      color: var(--text-light);
+    }
+
+    /* === CAROUSEL STYLES === */
+    .carousel-shell {
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 6px;
+      background-color: #000;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      transition: transform 0.3s ease;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      max-width: 100%;
+    }
+
+    .carousel-slide img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .carousel-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.6);
+      color: var(--text-light);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 4px;
+      width: 32px;
+      height: 32px;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 30px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .carousel-arrow:hover {
+      background-color: rgba(201,165,82,0.15); /* subtle gold tint on hover */
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .carousel-arrow.prev {
+      left: 8px;
+    }
+
+    .carousel-arrow.next {
+      right: 8px;
+    }
+
+    /* contact box under carousel */
     .hero-cta-box {
       border: 1px solid var(--border-light);
       background-color: rgba(255,255,255,0.03);
@@ -226,7 +288,6 @@
       font-size: 14px;
       line-height: 1.4;
       color: var(--text-light);
-      max-width: 360px;
     }
 
     .hero-cta-box .cta-label {
@@ -247,3 +308,757 @@
     .hero-cta-box .cta-accent {
       color: var(--accent);
       font-weight: 600;
+    }
+  </style>
+
+  <div class="hero-inner hero-layout">
+    <!-- LEFT COPY -->
+    <div class="hero-copy">
+      <div class="hero-badge">We are here to help you</div>
+      <h1>Adv. Sumit Sehgal</h1>
+      <div class="subline">
+        Civil &amp; Commercial Litigation. Arbitration. Criminal &amp; White Collar
+        Defence. Practical legal strategy. Firm representation.
+      </div>
+    </div>
+
+    <!-- RIGHT: carousel + contact -->
+    <div class="hero-photo-card">
+      <!-- CAROUSEL -->
+      <div class="carousel-shell">
+        <div class="carousel-track" id="heroCarouselTrack">
+          <div class="carousel-slide">
+            <img src="img/portrait-main.jpg" alt="Adv. Sumit Sehgal - Court appearance" />
+          </div>
+          <div class="carousel-slide">
+            <img src="img/portrait-outdoor.jpg" alt="Adv. Sumit Sehgal - Litigation practice" />
+          </div>
+          <div class="carousel-slide">
+            <img src="img/portrait-formal-band.jpg" alt="Adv. Sumit Sehgal - Formal chambers attire" />
+          </div>
+        </div>
+
+        <div class="carousel-arrow prev" id="heroPrev" aria-label="Previous photo">‹</div>
+        <div class="carousel-arrow next" id="heroNext" aria-label="Next photo">›</div>
+      </div>
+
+      <!-- CONTACT BOX -->
+      <div class="hero-cta-box">
+        <div class="cta-label">Call for consultation</div>
+        <div class="cta-value"><span class="cta-accent">+91-00000-00000</span></div>
+
+        <div class="cta-label" style="margin-top:12px;">Email</div>
+        <div class="cta-value">contact@example.com</div>
+
+        <div class="cta-label" style="margin-top:12px;">Office</div>
+        <div class="cta-value">Sector 00, City Name (By appointment)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+   
+
+    /* ===== MAIN SECTIONS ===== */
+    main {
+      max-width: var(--body-max);
+      margin: 40px auto 80px;
+      padding: 0 16px;
+      color: #111;
+    }
+
+    .section-block {
+      margin-bottom: 56px;
+    }
+
+    .section-head {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 600;
+      color: #111;
+      margin: 0 0 12px 0;
+      line-height: 1.3;
+    }
+
+    .section-desc {
+      font-size: 15px;
+      color: #444;
+      max-width: 760px;
+      line-height: 1.5;
+    }
+
+    /* ABOUT BLOCK */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: 24px;
+    }
+    @media(min-width:768px){
+      .about-grid {
+        grid-template-columns: 320px 1fr; /* photo left, text right */
+        column-gap: 32px;
+        align-items: start;
+      }
+    }
+
+    .about-photo-card {
+      border: 1px solid #e2e2e2;
+      border-radius: 10px;
+      background-color: #fff;
+      overflow: hidden;
+    }
+
+    .about-photo-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .about-photo-footer {
+      padding: 12px 16px;
+      border-top: 1px solid #e2e2e2;
+      font-size: 13px;
+      line-height: 1.4;
+      color: #444;
+    }
+
+    .about-name {
+      font-weight: 600;
+      color: #111;
+      margin-bottom: 4px;
+    }
+
+    .about-text {
+      font-size: 15px;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    /* COUNSEL IN PRACTICE (ICON CARDS) */
+    .gallery-headline {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      color: var(--accent); /* gold */
+      margin-bottom: 8px;
+    }
+
+    .gallery-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: #111;
+      margin: 0 0 12px 0;
+      line-height: 1.3;
+    }
+
+    .gallery-desc {
+      font-size: 14px;
+      color: #444;
+      max-width: 760px;
+      line-height: 1.5;
+      margin-bottom: 24px;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    @media(min-width:900px){
+      .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .gallery-card {
+      border: 1px solid #e2e2e2;
+      border-radius: 10px;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .icon-wrap {
+      background-color: #111;          /* black header */
+      color: var(--accent);            /* gold accent */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      height: 160px;
+    }
+
+    .icon-wrap svg {
+      width: 64px;
+      height: 64px;
+      stroke: var(--accent);
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    .gallery-caption {
+      flex: 1 1 auto;
+      padding: 16px 16px 20px;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #444;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cap-strong {
+      font-weight: 600;
+      color: #111;
+      font-size: 16px;
+      line-height: 1.4;
+      margin-bottom: 8px;
+    }
+
+    /* PRACTICE AREAS */
+    .areas-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+    @media(min-width:768px){
+      .areas-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .area-card {
+      border: 1px solid #e2e2e2;
+      border-radius: 10px;
+      padding: 16px 20px;
+      background-color: #fff;
+      line-height: 1.5;
+    }
+
+    .area-title {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #111;
+    }
+
+    .area-list {
+      font-size: 14px;
+      color: #555;
+      padding-left: 1.1rem;
+      margin: 0;
+    }
+
+    .area-list li {
+      margin-bottom: .5rem;
+    }
+
+    /* CONTACT CARD */
+    .contact-card {
+      border: 1px solid var(--border-dark);
+      border-radius: 10px;
+      padding: 20px 24px;
+      background-color: #fafafa;
+      max-width: 480px;
+      line-height: 1.5;
+      font-size: 14px;
+      color: #111;
+    }
+
+    .contact-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: #555;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin-bottom: 4px;
+    }
+
+    .contact-value {
+      font-size: 15px;
+      font-weight: 500;
+      color: #000;
+    }
+
+    .contact-spacer {
+      height: 16px;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      padding: 32px 16px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .footer-inner {
+      max-width: var(--body-max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: 24px;
+      font-size: 14px;
+    }
+
+    @media(min-width:600px){
+      .footer-inner {
+        grid-template-columns: 1fr auto;
+        column-gap: 40px;
+        align-items: start;
+      }
+    }
+
+    .footer-brand {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-light);
+      line-height: 1.4;
+    }
+
+    .footer-note {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 1.4;
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      text-align: left;
+    }
+
+    .footer-nav a {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-light);
+      text-decoration: none;
+    }
+
+    .footer-nav a:hover {
+      color: var(--accent);
+    }
+
+    .copyright {
+      font-size: 12px;
+      color: var(--text-mid);
+      margin-top: 24px;
+      border-top: 1px solid var(--border-light);
+      padding-top: 16px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== TOP CONTACT BAR ===== -->
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <div class="top-left">
+        <div class="top-item">
+          <span class="label">Email:</span>
+          <span>contact@example.com</span>
+        </div>
+        <div class="top-item">
+          <span class="label">Call:</span>
+          <span>+91-00000-00000</span>
+        </div>
+        <div class="top-item">
+          <span class="label">Office:</span>
+          <span>Sector 00, City Name</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== NAV BAR ===== -->
+  <div class="nav-bar">
+    <div class="nav-inner">
+      <div class="brand-block">
+        <div class="brand-name">Sumit Sehgal</div>
+        <div class="brand-tag">Advocate | Practical Legal Counsel</div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">About</a>
+
+        <div class="practice-container">
+          <a class="practice-trigger">Practice Areas ▾</a>
+          <div class="practice-dropdown">
+            <a href="index.html#civil-commercial">Civil &amp; Commercial Litigation</a>
+            <a href="index.html#criminal-whitecollar">Criminal / White Collar</a>
+            <a href="index.html#employment">Employment &amp; Labour</a>
+            <a href="index.html#corporate">Corporate &amp; Insolvency</a>
+            <a href="index.html#family">Family / Matrimonial</a>
+            <a href="index.html#tech">Technology &amp; Cyber</a>
+            <a href="index.html#nri-drafting">NRI &amp; Advisory</a>
+          </div>
+        </div>
+
+        <a href="index.html#contact">Contact</a>
+        <a href="contact-us.html">Contact Us</a>
+        <a href="make-payments.html">Make Payment</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="home">
+    <div class="hero-inner hero-layout">
+      <!-- LEFT: copy -->
+      <div class="hero-copy">
+        <div class="hero-badge">We are here to help you</div>
+        <h1>Adv. Sumit Sehgal</h1>
+        <div class="subline">
+          Civil &amp; Commercial Litigation. Arbitration. Criminal &amp; White Collar Defence.
+          Practical legal strategy. Firm representation.
+        </div>
+      </div>
+
+      <!-- RIGHT: portrait + contact -->
+      <div class="hero-photo-card">
+        <div class="hero-photo-wrapper">
+          <img src="img/portrait-main.jpg" alt="Adv. Sumit Sehgal" />
+        </div>
+
+        <div class="hero-cta-box">
+          <div class="cta-label">Call for consultation</div>
+          <div class="cta-value"><span class="cta-accent">+91-00000-00000</span></div>
+
+          <div class="cta-label" style="margin-top:12px;">Email</div>
+          <div class="cta-value">contact@example.com</div>
+
+          <div class="cta-label" style="margin-top:12px;">Office</div>
+          <div class="cta-value">Sector 00, City Name (By appointment)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main>
+
+    <!-- ABOUT -->
+    <section class="section-block" id="about">
+      <div class="section-head">About</div>
+      <h2 class="section-title">Focused on outcomes, not drama</h2>
+
+      <div class="about-grid">
+        <!-- LEFT: photo card -->
+        <div class="about-photo-card">
+          <img src="img/portrait-profile.jpg" alt="Counsel profile" />
+          <div class="about-photo-footer">
+            <div class="about-name">Adv. Sumit Sehgal</div>
+            Civil, criminal, corporate and family litigation.
+            Strategic legal counsel.
+          </div>
+        </div>
+
+        <!-- RIGHT: text -->
+        <div class="about-text">
+          I advise businesses, founders, and individuals on how to protect themselves before
+          problems escalate — and I represent clients aggressively when they do.
+          <br><br>
+          My approach is direct: strong paperwork at the start, pressure where required,
+          and disciplined execution in court. No noise, no 20-page lectures. Clear next steps.
+          <br><br>
+          I regularly handle: complex civil/commercial disputes, cheque bounce / 138 NI Act matters,
+          high-stakes terminations and labour disputes, FIR defence and criminal allegations
+          (including white collar), family/matrimonial litigation, and domestic &amp; international
+          arbitration.
+        </div>
+      </div>
+    </section>
+
+    <!-- COUNSEL IN PRACTICE -->
+    <section class="section-block" id="counsel">
+      <div class="gallery-headline">Counsel in Practice</div>
+      <div class="gallery-title">Representation. Strategy. Courtroom Work.</div>
+      <div class="gallery-desc">
+        Active litigation practice across civil, commercial, criminal, labour, family, corporate
+        and technology matters. In court, in conference, and in advisory mode.
+      </div>
+
+      <div class="gallery-grid">
+
+        <!-- Card 1 -->
+        <div class="gallery-card">
+          <div class="icon-wrap">
+            <!-- Scales of Justice icon -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3v3m0 0c2 0 3 .5 3 .5l4 7.5a3 3 0 1 1-6 0l3.5-6.5M12 6s-1 .5-3 .5L5 14a3 3 0 1 0 6 0L7.5 7.5M12 6v13m-5 2h10" />
+            </svg>
+          </div>
+          <div class="gallery-caption">
+            <div class="cap-strong">Courtroom Representation</div>
+            Formal appearance and argument in complex matters. Cross-examination, recovery, injunctions.
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="gallery-card">
+          <div class="icon-wrap">
+            <!-- Courthouse / Pillars icon -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 10h18M5 10v7M9 10v7M15 10v7M19 10v7M2 21h20M12 3 3 8h18l-9-5Z" />
+            </svg>
+          </div>
+          <div class="gallery-caption">
+            <div class="cap-strong">Trial and Appellate Lawyer</div>
+            Prepared, documented, and on record — filings, appeals, written submissions. Not just advisory.
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="gallery-card">
+          <div class="icon-wrap">
+            <!-- Strategy / Chess Knight icon -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 22h6m-6 0v-2a3 3 0 0 1 .4-1.5L11 16l-1-4 2-2 3 2 .5 3.5a2 2 0 0 0 2 1.5H19" />
+              <path d="M13 10V7.5c0-.5-.2-1-.6-1.4L11 4" />
+              <path d="M11 4 7 5v3l2 2" />
+            </svg>
+          </div>
+          <div class="gallery-caption">
+            <div class="cap-strong">Strategy &amp; Advisory</div>
+            High-stakes disputes are won in preparation, negotiation leverage, and risk control — not improvisation.
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="gallery-card">
+          <div class="icon-wrap">
+            <!-- Document / Briefcase hybrid -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 3h6l4 4v4.5M9 3v18H5a2 2 0 0 1-2-2V7l4-4h2Z" />
+              <path d="M15 3v4h4" />
+              <rect x="12" y="14" width="10" height="7" rx="2" ry="2" />
+              <path d="M16 14v-1a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v1" />
+            </svg>
+          </div>
+          <div class="gallery-caption">
+            <div class="cap-strong">On-Ground Litigation</div>
+            Real clients, real cases, real consequences. FIR defence, cheque bounce, labour disputes, enforcement.
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PRACTICE AREAS -->
+    <section class="section-block" id="practice">
+
+      <div class="section-head">Practice Areas</div>
+      <h2 class="section-title">Matters handled</h2>
+      <div class="section-desc">
+        Full-time litigation &amp; corporate practice. Civil, criminal, commercial, employment,
+        arbitration, family, technology and NRI matters.
+      </div>
+
+      <div class="areas-grid">
+
+        <div class="area-card" id="civil-commercial">
+          <div class="area-title">Civil &amp; Commercial Litigation</div>
+          <ul class="area-list">
+            <li>Injunctions, recovery, summary suits, declarations</li>
+            <li>Real Estate &amp; Construction disputes</li>
+            <li>Consumer matters</li>
+            <li>Debt recovery (DRT &amp; DRAT)</li>
+            <li>Cheque bounce / Negotiable Instruments Act (138)</li>
+          </ul>
+        </div>
+
+        <div class="area-card" id="criminal-whitecollar">
+          <div class="area-title">Criminal &amp; White Collar Defence</div>
+          <ul class="area-list">
+            <li>FIR handling, defence strategy, arguments in court</li>
+            <li>White collar / economic offences</li>
+            <li>Compliance breaches, fraud allegations</li>
+          </ul>
+        </div>
+
+        <div class="area-card" id="arbitration">
+          <div class="area-title">Arbitration &amp; Dispute Resolution</div>
+          <ul class="area-list">
+            <li>Domestic &amp; international arbitration</li>
+            <li>Commercial contract disputes</li>
+            <li>Settlement strategy and enforcement</li>
+          </ul>
+        </div>
+
+        <div class="area-card" id="employment">
+          <div class="area-title">Employment &amp; Labour Law</div>
+          <ul class="area-list">
+            <li>Employer–employee disputes</li>
+            <li>Termination, notice, severance terms</li>
+            <li>HR / internal policy and compliance</li>
+          </ul>
+        </div>
+
+        <div class="area-card" id="corporate">
+          <div class="area-title">Corporate, Insolvency &amp; M&amp;A</div>
+          <ul class="area-list">
+            <li>Corporate / Company Law advisory</li>
+            <li>Mergers &amp; Acquisitions</li>
+            <li>Insolvency &amp; Bankruptcy</li>
+          </ul>
+        </div>
+
+        <div class="area-card" id="tech">
+          <div class="area-title">Technology, Cyber &amp; Compliance</div>
+          <ul class="area-list">
+            <li>Data privacy &amp; protection</li>
+            <li>Information Technology Act matters</li>
+            <li>Cyber law disputes</li>
+            <li>E-commerce compliance, website policies, T&amp;C</li>
+            <li>Start-up advisory / outsourcing</li>
+          </ul>
+        </div>
+
+        <div class="area-card" id="family">
+          <div class="area-title">Family &amp; Matrimonial Law</div>
+          <ul class="area-list">
+            <li>Divorce, Domestic Violence, 498A</li>
+            <li>Section 125 CRPC, Section 9 HMA</li>
+            <li>Custody, property rights, annulment of marriage</li>
+          </ul>
+        </div>
+
+        <div class="area-card" id="nri-drafting">
+          <div class="area-title">NRI Matters &amp; Strategic Advisory</div>
+          <ul class="area-list">
+            <li>NRI legal services</li>
+            <li>Legal drafting (agreements, notices, replies)</li>
+            <li>Vetting &amp; review of contracts (domestic &amp; international)</li>
+            <li>Written opinions, legal strategy, guidance before escalation</li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT / APPOINTMENT -->
+    <section class="section-block" id="contact">
+      <div class="section-head">Contact</div>
+      <h2 class="section-title">Request a consultation</h2>
+      <div class="section-desc">
+        By appointment. Available in person and remote.
+      </div>
+
+      <div style="margin-top:24px;">
+        <div class="contact-card">
+          <div>
+            <div class="contact-label">Phone / WhatsApp</div>
+            <div class="contact-value">+91-00000-00000</div>
+          </div>
+
+          <div class="contact-spacer"></div>
+
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value">contact@example.com</div>
+          </div>
+
+          <div class="contact-spacer"></div>
+
+          <div>
+            <div class="contact-label">Office</div>
+            <div class="contact-value">
+              Sector 00, City Name<br/>
+              (Please call to schedule before visiting)
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand">Adv. Sumit Sehgal</div>
+        <div class="footer-note">
+          Practical legal counsel for businesses and individuals.
+          Contracts • Compliance • Dispute Resolution
+        </div>
+      </div>
+
+      <div class="footer-nav">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#about">About</a>
+        <a href="index.html#practice">Practice Areas</a>
+        <a href="index.html#contact">Contact</a>
+        <a href="contact-us.html">Contact Us</a>
+        <a href="make-payments.html">Make Payment</a>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2025 Sumit Sehgal. All Rights Reserved.
+    </div>
+  </footer>
+
+  <!-- Dropdown hover script -->
+  <script>
+  (function () {
+    const container = document.querySelector('.practice-container');
+    const dropdown = document.querySelector('.practice-dropdown');
+
+    if (container && dropdown) {
+      container.addEventListener('mouseenter', () => {
+        dropdown.style.display = 'block';
+      });
+      container.addEventListener('mouseleave', () => {
+        dropdown.style.display = 'none';
+      });
+    }
+  })();
+</script>
+<script>
+  (function () {
+    const track = document.getElementById('heroCarouselTrack');
+    const prevBtn = document.getElementById('heroPrev');
+    const nextBtn = document.getElementById('heroNext');
+
+    if (!track || !prevBtn || !nextBtn) return;
+
+    const slides = track.children;
+    const total = slides.length;
+    let index = 0; // start on portrait-main.jpg
+
+    function updateCarousel() {
+      const offset = index * -100; // move by 100% per slide
+      track.style.transform = 'translateX(' + offset + '%)';
+    }
+
+    prevBtn.addEventListener('click', function () {
+      index = (index - 1 + total) % total;
+      updateCarousel();
+    });
+
+    nextBtn.addEventListener('click', function () {
+      index = (index + 1) % total;
+      updateCarousel();
+    });
+  })();
+</script>
+
+
+</body>
+</html>
