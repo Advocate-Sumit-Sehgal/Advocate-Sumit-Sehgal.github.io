@@ -66,55 +66,73 @@
     }
 
     /* ===== NAV BAR ===== */
-    .nav-bar {
-      background-color: #fff;
-      border-bottom: 1px solid #e2e2e2;
-      padding: 16px;
-    }
+  <div class="nav-bar">
+    <div class="nav-inner">
+      <div class="brand-block">
+        <div class="brand-name">Sumit Sehgal</div>
+        <div class="brand-tag">Advocate | Practical Legal Counsel</div>
+      </div>
 
-    .nav-inner {
-      max-width: var(--body-max);
-      margin: 0 auto;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-    }
+      <nav class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
 
-    .brand-block {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.2;
-    }
+        <!-- Practice Areas menu container -->
+        <div style="display:flex; flex-direction:column; position:relative;">
+          <a href="#practice" style="text-decoration:none; color:#111; font-weight:500;">Practice Areas ▾</a>
+          <div style="
+            position:absolute;
+            top:20px;
+            left:0;
+            background:#fff;
+            border:1px solid #e2e2e2;
+            border-radius:8px;
+            padding:12px 16px;
+            min-width:220px;
+            box-shadow:0 12px 24px rgba(0,0,0,0.08);
+            display:none;
+            z-index:999;
+            font-size:14px;
+            line-height:1.4;
+          "
+          class="practice-dropdown">
+            <div style="margin-bottom:10px;">
+              <a href="#contracts" style="color:#111; text-decoration:none; font-weight:500;">Contracts &amp; Compliance</a>
+            </div>
+            <div style="margin-bottom:10px;">
+              <a href="#employment" style="color:#111; text-decoration:none; font-weight:500;">Employment &amp; HR Advisory</a>
+            </div>
+            <div style="margin-bottom:10px;">
+              <a href="#disputes" style="color:#111; text-decoration:none; font-weight:500;">Business Disputes</a>
+            </div>
+            <div>
+              <a href="#regulatory" style="color:#111; text-decoration:none; font-weight:500;">Regulatory Guidance</a>
+            </div>
+          </div>
+        </div>
 
-    .brand-name {
-      font-size: 20px;
-      font-weight: 600;
-      color: #111;
-    }
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
 
-    .brand-tag {
-      font-size: 13px;
-      color: #555;
-    }
+  <script>
+    // Simple hover to show dropdown on desktop
+    (function () {
+      const container = document.querySelector('.nav-links > div');
+      const dropdown = document.querySelector('.practice-dropdown');
 
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 24px;
-      font-size: 14px;
-      font-weight: 500;
-    }
+      if (container && dropdown) {
+        container.addEventListener('mouseenter', () => {
+          dropdown.style.display = 'block';
+        });
+        container.addEventListener('mouseleave', () => {
+          dropdown.style.display = 'none';
+        });
+      }
+    })();
+  </script>
 
-    .nav-links a {
-      color: #111;
-      text-decoration: none;
-    }
-
-    .nav-links a:hover {
-      color: var(--accent);
-    }
 
     /* ===== HERO SECTION ===== */
     .hero {
@@ -236,39 +254,42 @@
     }
 
     /* Practice areas grid */
-    .areas-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      margin-top: 24px;
-    }
+          <div class="areas-grid">
 
-    @media(min-width:600px){
-      .areas-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
+        <div class="area-card" id="contracts">
+          <div class="area-title">Contracts &amp; Compliance</div>
+          <div class="area-text">
+            Drafting, reviewing, and negotiating commercial agreements so obligations are
+            clear and enforceable.
+          </div>
+        </div>
 
-    .area-card {
-      border: 1px solid #e2e2e2;
-      border-radius: 10px;
-      padding: 16px 20px;
-      background-color: #fff;
-      line-height: 1.4;
-    }
+        <div class="area-card" id="employment">
+          <div class="area-title">Employment &amp; HR Advisory</div>
+          <div class="area-text">
+            Offer letters, separations, internal policy language, confidentiality clauses,
+            non-compete and non-solicit language.
+          </div>
+        </div>
 
-    .area-title {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 6px;
-      color: #111;
-    }
+        <div class="area-card" id="disputes">
+          <div class="area-title">Business Disputes</div>
+          <div class="area-text">
+            Legal notices, settlement strategy, representation in commercial and civil matters.
+            If someone stops respecting terms, we make sure they start respecting them.
+          </div>
+        </div>
 
-    .area-text {
-      font-size: 14px;
-      color: #555;
-      line-height: 1.5;
-    }
+        <div class="area-card" id="regulatory">
+          <div class="area-title">Regulatory Guidance</div>
+          <div class="area-text">
+            Confidentiality, data handling, and risk posture for growing teams and early-stage
+            companies.
+          </div>
+        </div>
+
+      </div>
+
 
     /* Contact block in main */
     .contact-card {
