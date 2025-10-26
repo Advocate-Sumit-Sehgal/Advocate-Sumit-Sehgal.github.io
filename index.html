@@ -623,35 +623,85 @@
   </style>
 
   <div class="section-head">About</div>
-  <h2 class="section-title">Focused on outcomes, not drama</h2>
+<h2 class="section-title">Focused on outcomes, not drama</h2>
 
-  <div class="about-grid">
-    <div class="section-desc">
-      I advise businesses, founders, and individuals on how to protect themselves before
-      problems escalate — and I represent clients aggressively when they do.
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 24px;
+  }
 
-      <br><br>
+  /* On desktop: left column = photo card (320px), right column = text */
+  @media (min-width: 768px) {
+    .about-grid {
+      grid-template-columns: 320px 1fr;
+      column-gap: 32px;
+      align-items: start;
+    }
+  }
 
-      My approach is direct: strong paperwork at the start, pressure where required,
-      and disciplined execution in court. No noise, no 20-page lectures. Clear next steps.
+  .about-photo-card {
+    border: 1px solid #e2e2e2;
+    border-radius: 10px;
+    background-color: #fff;
+    overflow: hidden;
+  }
 
-      <br><br>
+  .about-photo-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
 
-      I regularly handle:
-      complex civil/commercial disputes, cheque bounce / 138 NI Act matters,
-      high-stakes terminations and labour disputes,
-      FIR defence and criminal allegations (including white collar),
-      family/matrimonial litigation, and domestic & international arbitration.
-    </div>
+  .about-photo-footer {
+    padding: 12px 16px;
+    border-top: 1px solid #e2e2e2;
+    font-size: 13px;
+    line-height: 1.4;
+    color: #444;
+  }
 
-    <div class="about-photo-card">
-      <img src="img/portrait-profile.jpg" alt="Counsel profile" />
-      <div class="about-photo-footer">
-        <div class="about-name">Adv. Sumit Sehgal</div>
-        Civil, criminal, corporate and family litigation. Strategic legal counsel.
-      </div>
+  .about-name {
+    font-weight: 600;
+    color: #111;
+    margin-bottom: 4px;
+  }
+
+  .section-desc {
+    font-size: 15px;
+    color: #444;
+    line-height: 1.5;
+  }
+</style>
+
+<div class="about-grid">
+  <!-- LEFT: photo card -->
+  <div class="about-photo-card">
+    <img src="img/portrait-profile.jpg" alt="Counsel profile" />
+    <div class="about-photo-footer">
+      <div class="about-name">Adv. Sumit Sehgal</div>
+      Civil, criminal, corporate and family litigation.
+      Strategic legal counsel.
     </div>
   </div>
+
+  <!-- RIGHT: text -->
+  <div class="section-desc">
+    I advise businesses, founders, and individuals on how to protect themselves before
+    problems escalate — and I represent clients aggressively when they do.
+    <br><br>
+    My approach is direct: strong paperwork at the start, pressure where required,
+    and disciplined execution in court. No noise, no 20-page lectures. Clear next steps.
+    <br><br>
+    I regularly handle: complex civil/commercial disputes, cheque bounce / 138 NI Act matters,
+    high-stakes terminations and labour disputes, FIR defence and criminal allegations
+    (including white collar), family/matrimonial litigation, and domestic &amp; international
+    arbitration.
+  </div>
+</div>
+
 </section>
  <!-- COUNSEL IN PRACTICE -->
     <section class="section-block" id="counsel">
